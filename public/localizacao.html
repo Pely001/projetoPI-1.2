@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Adicionando CSS do plugin de busca (GeoSearch) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.11.0/dist/geosearch.css" />
-
     <title>Localização - PI</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
@@ -25,8 +22,8 @@
             <div class="filter-group">
                 <strong>Vibe / Ambiente:</strong>
                 <div><input type="checkbox" id="vibe_agitado" value="agitado"> <label for="vibe_agitado">Agitado</label></div>
-                <div><input type="checkbox" id="vibe_calmo" value="calmo"> <label for="vibe_calmo">Calmo</label></div> 
-            </div>
+                <div><input type="checkbox" id="vibe_calmo" value="calmo"> <label for="vibe_calmo">Calmo</label></div>
+             </div>
              </aside>
 
         <main class="main-content">
@@ -34,35 +31,15 @@
                 <button id="show-map-btn" class="active">Ver Mapa</button>
                 <button id="show-list-btn">Ver Lista</button>
             </div>
-            <div class="map-list-wrapper">
-                <div id="map"></div>
-                <div id="list-container" class="hidden"></div>
-            </div>
+            <div id="map"></div>
+            <div id="list-container" class="hidden"></div>
         </main>
     </div>
     
     <div id="details-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <button id="modal-close" class="modal-close-btn">&times;</button>
-            <h2 id="modal-name">Nome do Local</h2>
-            <p id="modal-review" class="curator-review">"Review do curador aqui."</p>
-            
-            <div class="modal-details">
-                <p><strong>Endereço:</strong> <span id="modal-address"></span></p>
-                <p><strong>Telefone:</strong> <span id="modal-phone"></span></p>
-            </div>
-
-            <div class="modal-actions">
-                <a id="modal-menu-link" href="#" target="_blank" class="btn">Ver Cardápio</a>
-                <a id="modal-maps-link" href="#" target="_blank" class="btn">Ver no Mapa</a>
-            </div>
-        </div>
       </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-    <!-- Adicionando JS do plugin de busca (GeoSearch) -->
-    <script src="https://unpkg.com/leaflet-geosearch@3.11.0/dist/geosearch.umd.js"></script>
     
     <script type="module" src="/components/navbar.js"></script>
     

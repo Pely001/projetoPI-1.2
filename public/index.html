@@ -3,49 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial - PI</title>
+    <title>Home - PI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
-        <!-- 1. Menu Lateral Principal -->
         <main-navbar></main-navbar>
-
-        <!-- 2. Conteúdo Principal -->
+        
         <main class="main-content">
-            <!-- Cabeçalho com a barra de busca -->
-            <header class="main-header">
-                <input type="search" class="search-bar" placeholder="Buscar locais, pessoas...">
-                <button id="btn-entrar-top" class="btn-secondary">Entrar</button>
-            </header>
-
-            <!-- Corpo do conteúdo com a lista -->
-            <div class="content-body">
-                <h1>Recomendados</h1>
-                <div class="estabelecimento-lista">
-                    <div class="estabelecimento-card">
-                        <img src="img/bar.jpg" alt="Bar do Zé" />
+            <h1>Página Inicial (Feed)</h1>
+            <div class="feed-container">
+                <div class="feed-post">
+                    <div class="post-header">
+                        <img src="https://via.placeholder.com/40" alt="logo" class="post-avatar">
                         <div>
-                            <h2>Bar do Zé</h2>
-                            <p>Bares</p>
-                            <button>Favoritos</button>
-                            <button>Avaliações</button>
-                            <button>Comentários</button>
-                            <button>Localização</button>
+                            <strong>Coco Bambu - Recife</strong>
+                            <button class="btn-follow">Seguir</button>
                         </div>
                     </div>
-                    <!-- Repita para cada estabelecimento -->
+                    <p>Venha desfrutar de um delicioso jantar!</p>
+                    <img src="https://via.placeholder.com/600x400" alt="Foto do restaurante" class="post-image">
+                    <div class="post-actions">
+                        <span>1.5mil Likes</span>
+                        <span>500 Comentários</span>
+                    </div>
                 </div>
-            </div>
+                
+                </div>
         </main>
-
-        <!-- 3. Barra Lateral Direita (opcional) -->
+        
         <aside class="sidebar-right">
             <h3>Comunicados</h3>
+            <p>Nenhuma novidade por enquanto.</p>
         </aside>
     </div>
 
     <script type="module" src="/components/navbar.js"></script>
-    <script type="module" src="/home/app.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>
