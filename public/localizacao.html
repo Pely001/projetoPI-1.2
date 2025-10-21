@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localização - PI</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <main-navbar></main-navbar>
+        
+        <aside class="filter-sidebar">
+            <h2>Encontre o local Perfeito</h2>
+            <p>Busca com filtros que o Google não tem.</p>
+
+            <div class="filter-group">
+                <label for="search-text">Buscar por nome:</label>
+                <input type="text" id="search-text" placeholder="Ex: Bar do Zé">
+            </div>
+            <div class="filter-group">
+                <strong>Vibe / Ambiente:</strong>
+                <div><input type="checkbox" id="vibe_agitado" value="agitado"> <label for="vibe_agitado">Agitado</label></div>
+                <div><input type="checkbox" id="vibe_calmo" value="calmo"> <label for="vibe_calmo">Calmo</label></div>
+             </div>
+             </aside>
+
+        <main class="main-content">
+            <div class="view-toggle">
+                <button id="show-map-btn" class="active">Ver Mapa</button>
+                <button id="show-list-btn">Ver Lista</button>
+            </div>
+            <div id="map"></div>
+            <div id="list-container" class="hidden"></div>
+        </main>
+    </div>
+    
+    <div id="details-modal" class="modal-overlay hidden">
+      </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script type="module" src="/components/navbar.js"></script>
+    
+    <script type="module" src="/mapa/app.js"></script>
+</body>
+</html>
