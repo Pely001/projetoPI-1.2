@@ -6,9 +6,9 @@ class MainNavbar extends HTMLElement {
     super();
     this.innerHTML = `
       <aside class="sidebar-main-nav">
-        <a href="/" class="nav-logo">
-          BGT
-        </a>
+        
+          <img src="/data/img/icon.png" alt="BGT" class="nav-logo-image" style="width: 64px; align-self: center">
+        
         <nav class="nav-links">
           <a href="/" class="nav-item ${this.isActive('/')}">
             <span class="nav-icon">🏠</span>

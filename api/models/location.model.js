@@ -3,22 +3,24 @@ import { openDb } from '../../db/database.js';
 
 export const LocationAPIModel = {
   
-  /**
-   * Busca todos os locais no banco de dados SQLite
-   */
   getAll: async () => {
     const db = await openDb();
-    
-    // 1. Executa a consulta SQL
     const locations = await db.all('SELECT * FROM locations');
     
-    // 2. IMPORTANTE: Converte a string JSON 'tags' de volta para um objeto
-    return locations.map(loc => ({
-      ...loc,
-      tags: JSON.parse(loc.tags) 
-    }));
+    return locations.map(loc => {
+      let parsedTags = { vibe: [], occasion: [], amenities: [] }; 
+      try {
+        if (loc.tags) {
+          parsedTags = JSON.parse(loc.tags);
+        }
+      } catch (e) {
+        console.error(`Erro ao parsear tags do local ID ${loc.id}:`, loc.tags, e);
+      }
+      
+      return {
+        ...loc,
+        tags: parsedTags 
+      };
+    });
   }
-  
-  // No futuro, você pode adicionar:
-  // getById: async (id) => { ... db.get('... WHERE id = ?', id) }
 };

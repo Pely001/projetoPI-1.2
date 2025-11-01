@@ -2,8 +2,8 @@
 export const LOCATIONS_DB = [
   {
     id: 1,
-    name: "Bar do Zé - Pinheiros",
-    address: "Rua dos Pinheiros, 123, São Paulo",
+    name: "Restaurante Coco Bambu Recife",
+    address: "R. Padre Carapuceiro, 777 - Loja 82A - Boa Viagem, Recife - PE, 51020-900",
     phone: "(11) 99999-1234",
     menu_url: "https://site.com/menu.pdf",
     lat: -23.565010,
@@ -13,13 +13,14 @@ export const LOCATIONS_DB = [
       vibe: ["agitado", "bom_para_grupos"],
       occasion: ["happy_hour"],
       price: "$$",
-      amenities: ["pet_friendly_externo", "musica_ao_vivo"]
+      amenities: ["pet_friendly_externo", "musica_ao_vivo"],
+      image_path: "/data/img/1.png"
     }
   },
   {
     id: 2,
-    name: "Cantina da Nona",
-    address: "Rua Fradique Coutinho, 456, São Paulo",
+    name: "Pizzaria Atlântico Olinda",
+    address: "Av. Fagundes Varela, 111 - Jardim Atlântico, Olinda - PE",
     phone: "(11) 98888-5678",
     menu_url: "https://site.com/menu-cantina.pdf",
     lat: -23.560120,
@@ -29,13 +30,14 @@ export const LOCATIONS_DB = [
       vibe: ["calmo", "romantico"],
       occasion: ["jantar_familia", "date"],
       price: "$$$",
-      amenities: ["acessivel_rampa", "wi_fi_bom"]
+      amenities: ["acessivel_rampa", "wi_fi_bom"],
+      image_path: "/data/img/2.png"
     }
   },
   {
     id: 3,
-    name: "O Ponto do Café",
-    address: "Rua Artur de Azevedo, 789, São Paulo",
+    name: "Restaurante Sabor Goiano",
+    address: "BR-060 - Abadiânia, GO, 72940-000",
     phone: "(11) 97777-4321",
     menu_url: "https://site.com/menu-cafe.pdf",
     lat: -23.563450,
@@ -45,7 +47,45 @@ export const LOCATIONS_DB = [
       vibe: ["calmo", "bom_para_trabalhar"],
       occasion: ["trabalhar_sozinho"],
       price: "$",
-      amenities: ["wi_fi_bom", "tomadas_nas_mesas"]
+      amenities: ["wi_fi_bom", "tomadas_nas_mesas"],
+      image_path: "/data/img/3.png"
+    }
+  },
+  // ... (dentro da lista LOCATIONS_DB, depois do "O Ponto do Café")
+  {
+    id: 4,
+    name: "Smash Burger Hamburgueria Caruaru",
+    address: "Rua Santa Maria da Boa Vista, 297 Boa Vista 1, Caruaru - PE, 55038-090",
+    phone: "(81) 3038-7080",
+    menu_url: "https://cocobambu.com/unidade/derby",
+    lat: -8.0553, // Coordenadas reais (aprox.)
+    lng: -34.8985, // Coordenadas reais (aprox.)
+    curator_review: "Frutos do mar excelentes, pratos muito bem servidos. Ótimo para ir em grupo ou com a família.",
+    tags: {
+      vibe: ["romantico", "bom_para_grupos"],
+      occasion: ["jantar_familia", "date"],
+      price: "$$$",
+      amenities: ["acessivel_rampa", "wi_fi_bom"],
+      image_path: "/data/img/4.png"
+    }
+  },
+  {
+    id: 5,
+    name: "Vasto - Shopping Recife",
+    address: "R. Padre Carapuceiro, 777 - Boa Viagem, Recife",
+    phone: "(81) 3038-7080",
+    menu_url: "https://vastorestaurante.com/vasto-recife/",
+    lat: -8.1193, // Coordenadas reais (aprox.)
+    lng: -34.9048, // Coordenadas reais (aprox.)
+    curator_review: "Carnes nobres com um toque sofisticado. O ambiente é mais executivo e moderno.",
+    tags: {
+      vibe: ["agitado", "romantico"],
+      occasion: ["date", "almoco_negocios"],
+      price: "$$$",
+      amenities: ["acessivel_rampa"],
+    image_path: "/data/img/5.png"
     }
   }
+// ... (feche o array com ])
+  
 ];

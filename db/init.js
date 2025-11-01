@@ -12,7 +12,8 @@ async function initializeDatabase() {
   await db.exec(`
     CREATE TABLE IF NOT EXISTS locations (
       id INTEGER PRIMARY KEY, name TEXT NOT NULL, address TEXT, phone TEXT,
-      menu_url TEXT, lat REAL, lng REAL, curator_review TEXT, tags TEXT 
+      menu_url TEXT, lat REAL, lng REAL, curator_review TEXT, tags TEXT,
+      image_path TEXT  
     );
   `);
   console.log("Tabela 'locations' verificada/criada.");

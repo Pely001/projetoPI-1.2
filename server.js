@@ -16,6 +16,7 @@ const PORT = 3000;
 // Middlewares
 app.use(cors()); 
 app.use(express.json());
+app.use('/data', express.static(path.join(__dirname, '/data')));
 
 // --- ROTAS DA API ---
 // O backend agora tem duas rotas de API
