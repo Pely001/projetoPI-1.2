@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pesquisa - BGT</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <main-navbar></main-navbar>
+
+    <main class="main-content">
+      <header class="main-header">
+        <input type="text" id="search-input" class="search-bar" placeholder="Buscar locais...">
+        <button class="btn-primary">Entrar</button>
+      </header>
+
+      <div class="content-body">
+        <div class="search-layout">
+          
+          <!-- ESQUERDA: LISTA DE RESULTADOS -->
+          <aside class="results-panel">
+            <div id="results-container">
+              <p class="text-muted">Digite algo para buscar...</p>
+            </div>
+          </aside>
+
+          <!-- DIREITA: MAPA -->
+          <section class="map-panel">
+            <div id="map"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="/components/navbar.js"></script>
+  <script type="module" src="/js/pesquisa.js"></script>
+</body>
+</html>
