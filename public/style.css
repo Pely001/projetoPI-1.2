@@ -422,3 +422,133 @@ body {
         right: 0;
     }
 }
+/* =========================================
+   LAYOUT: INFO + MAPA (LADO A LADO)
+   ========================================= */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 0;
+  height: calc(100vh - 160px);
+  background: #161625;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.info-panel {
+  background: #1e1e30;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+  border-right: 1px solid #2a2a40;
+}
+
+.info-avatar {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2a2a40;
+}
+
+.info-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info-panel h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+.tag {
+  background: #7b5cf0;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  align-self: flex-start;
+  text-transform: capitalize;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-block strong {
+  color: #7b5cf0;
+  font-size: 0.9rem;
+}
+
+.info-block p {
+  color: #ccc;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.btn-secondary {
+  background: #2a2a40;
+  color: #fff;
+  border: 1px solid #3a3a50;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #3a3a60;
+}
+
+.btn-back {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #3a3a50;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.btn-back:hover {
+  background: #2a2a40;
+  color: #fff;
+}
+
+/* MAPA */
+.map-panel {
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .detail-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .info-panel {
+    max-height: 50vh;
+    border-right: none;
+    border-bottom: 1px solid #2a2a40;
+  }
+  .map-panel {
+    height: 50vh;
+  }
+}

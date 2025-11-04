@@ -9,12 +9,13 @@ export const LOCATIONS_DB = [
     lat: -23.565010,
     lng: -46.681970,
     curator_review: "Ótimo para happy hour! A porção de fritas é generosa e o chopp é gelado. Fica bem cheio depois das 18h.",
+    image_path: "/data/img/1.png",
     tags: {
       vibe: ["agitado", "bom_para_grupos"],
       occasion: ["happy_hour"],
       price: "$$",
       amenities: ["pet_friendly_externo", "musica_ao_vivo"],
-      image_path: "/data/img/1.png"
+      
     }
   },
   {
@@ -26,12 +27,13 @@ export const LOCATIONS_DB = [
     lat: -23.560120,
     lng: -46.685340,
     curator_review: "Perfeito para um jantar romântico ou em família. O gnocchi ao sugo é fantástico. Ambiente silencioso.",
+    image_path: "/data/img/2.png",
     tags: {
       vibe: ["calmo", "romantico"],
       occasion: ["jantar_familia", "date"],
       price: "$$$",
       amenities: ["acessivel_rampa", "wi_fi_bom"],
-      image_path: "/data/img/2.png"
+      
     }
   },
   {
@@ -43,12 +45,13 @@ export const LOCATIONS_DB = [
     lat: -23.563450,
     lng: -46.679880,
     curator_review: "O melhor lugar para trabalhar. Várias tomadas, Wi-Fi rápido e o café coado é excelente.",
+    image_path: "/data/img/3.png",
     tags: {
       vibe: ["calmo", "bom_para_trabalhar"],
       occasion: ["trabalhar_sozinho"],
       price: "$",
       amenities: ["wi_fi_bom", "tomadas_nas_mesas"],
-      image_path: "/data/img/3.png"
+      
     }
   },
   // ... (dentro da lista LOCATIONS_DB, depois do "O Ponto do Café")
@@ -61,12 +64,13 @@ export const LOCATIONS_DB = [
     lat: -8.0553, // Coordenadas reais (aprox.)
     lng: -34.8985, // Coordenadas reais (aprox.)
     curator_review: "Frutos do mar excelentes, pratos muito bem servidos. Ótimo para ir em grupo ou com a família.",
+    image_path: "/data/img/4.png",
     tags: {
       vibe: ["romantico", "bom_para_grupos"],
       occasion: ["jantar_familia", "date"],
       price: "$$$",
       amenities: ["acessivel_rampa", "wi_fi_bom"],
-      image_path: "/data/img/4.png"
+      
     }
   },
   {
@@ -78,12 +82,13 @@ export const LOCATIONS_DB = [
     lat: -8.1193, // Coordenadas reais (aprox.)
     lng: -34.9048, // Coordenadas reais (aprox.)
     curator_review: "Carnes nobres com um toque sofisticado. O ambiente é mais executivo e moderno.",
+    image_path: "/data/img/5.png",
     tags: {
       vibe: ["agitado", "romantico"],
       occasion: ["date", "almoco_negocios"],
       price: "$$$",
       amenities: ["acessivel_rampa"],
-    image_path: "/data/img/5.png"
+    
     }
   }
 // ... (feche o array com ])

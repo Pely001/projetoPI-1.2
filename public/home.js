@@ -69,6 +69,13 @@ async function renderLocations() {
             window.location.href = `/localizacao.html?id=${locationId}`;
         });
     });
+    // No final do createLocationCard ou render
+        document.querySelectorAll('[data-location-id]').forEach(btn => {
+            btn.addEventListener('click', () => {
+            const id = btn.dataset.locationId;
+            window.location.href = `/localizacao.html?id=${id}`;
+        });
+    });
 }
 
 // 4. Inicia o processo quando a página carregar

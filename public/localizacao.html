@@ -1,75 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Localização - PI</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Localização - BGT</title>
+  
+  <!-- Leaflet (OpenStreetMap) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="app-container">
-        <main-navbar></main-navbar>
-        
-        <aside class="filter-sidebar">
-            <h2>Encontre o local Perfeito</h2>
-            <p>Busca com filtros que o Google não tem.</p>
+  <div class="app-container">
+    <main-navbar></main-navbar>
 
-            <div class="filter-group">
-                <label for="search-text">Buscar por nome:</label>
-                <input type="text" id="search-text" placeholder="Ex: Bar do Zé">
-            </div>
+    <main class="main-content">
+      <header class="main-header">
+        <input type="text" class="search-bar" placeholder="Buscar locais...">
+        <button class="btn-primary">Entrar</button>
+      </header>
 
-            <div class="filter-group">
-                <strong>Vibe / Ambiente:</strong>
-                <div><input type="checkbox" id="vibe_agitado" value="agitado"> <label for="vibe_agitado">Agitado</label></div>
-                <div><input type="checkbox" id="vibe_calmo" value="calmo"> <label for="vibe_calmo">Calmo</label></div>
-                <div><input type="checkbox" id="vibe_romantico" value="romantico"> <label for="vibe_romantico">Romântico</label></div>
-                <div><input type="checkbox" id="vibe_bom_para_trabalhar" value="bom_para_trabalhar"> <label for="vibe_bom_para_trabalhar">Bom para Trabalhar</label></div>
-            </div>
-            <div class="filter-group">
-                <strong>Ocasião:</strong>
-                <div><input type="checkbox" id="oc_happy_hour" value="happy_hour"> <label for="oc_happy_hour">Happy Hour</label></div>
-                <div><input type="checkbox" id="oc_date" value="date"> <label for="oc_date">Date</label></div>
-                <div><input type="checkbox" id="oc_jantar_familia" value="jantar_familia"> <label for="oc_jantar_familia">Jantar em Família</label></div>
-            </div>
-            <div class="filter-group">
-                <strong>Comodidades:</strong>
-                <div><input type="checkbox" id="am_tomadas" value="tomadas_nas_mesas"> <label for="am_tomadas">Tomadas</label></div>
-                <div><input type="checkbox" id="am_acessivel" value="acessivel_rampa"> <label for="am_acessivel">Acessível (Rampa)</label></div>
-                <div><input type="checkbox" id="am_wifi" value="wi_fi_bom"> <label for="am_wifi">Wi-Fi Bom</label></div>
-            </div>
-        </aside>
+      <div class="content-body">
+        <h2 class="h2">Localização do Estabelecimento</h2>
 
-        <main class="main-content">
-            <div class="view-toggle">
-                <button id="show-map-btn">Ver Mapa</button>
-                <button id="show-list-btn">Ver Lista</button>
-            </div>
-            
+        <!-- LAYOUT: INFO + MAPA (lado a lado) -->
+        <div class="detail-layout">
+          
+          <aside class="info-panel">
+  <!-- REMOVIDO: bloco da imagem -->
+
+  <h3 id="loc-name">Carregando...</h3>
+  <p id="loc-vibe" class="tag">—</p>
+
+  <div class="info-block">
+    <strong>Endereço</strong>
+    <p id="loc-address">—</p>
+  </div>
+
+  <div class="info-block">
+    <strong>Telefone</strong>
+    <p id="loc-phone">—</p>
+  </div>
+
+  <div class="info-block">
+    <a id="loc-menu" href="#" target="_blank" class="btn-primary">Ver Cardápio</a>
+  </div>
+
+  <div class="info-block">
+    <a id="loc-gmaps" href="#" target="_blank" class="btn-secondary">Abrir no Google Maps</a>
+  </div>
+
+  <div class="info-block">
+    <button onclick="history.back()" class="btn-back">Voltar</button>
+  </div>
+</aside>
+
+          <!-- DIREITA: MAPA -->
+          <section class="map-panel">
             <div id="map"></div>
-            
-            <div id="list-container" class="hidden"></div>
-        </main>
-    </div>
-    
-    <div id="details-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <button class="modal-close-btn" id="modal-close">X</button>
-            <h2 id="modal-name"></h2>
-            <p id="modal-review" class="curator-review"></p>
-            <hr>
-            <p><strong>Telefone (Verificado):</strong> <span id="modal-phone"></span></p>
-            <p><strong>Endereço:</strong> <span id="modal-address"></span></p>
-            <a id="modal-menu-link" href="#" target="_blank" class="btn-primary">Ver Cardápio (PDF)</a>
-            <a id="modal-maps-link" href="#" target="_blank" class="btn-secondary">Abrir no Google Maps</a>
+          </section>
         </div>
-    </div>
+      </div>
+    </main>
+  </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script type="module" src="/components/navbar.js"></script>
-    <script type="module" src="/mapa/app.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="/components/navbar.js"></script>
+  <script type="module" src="/js/localizacao-detail.js"></script>
 </body>
 </html>

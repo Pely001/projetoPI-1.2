@@ -8,6 +8,9 @@ import { fileURLToPath } from 'url';
 import locationRoutes from './api/routes/location.routes.js';
 import authRoutes from './api/routes/auth.routes.js';
 
+// IMPORTA O BANCO DE DADOS
+import { LOCATIONS_DB } from './data/locations.data.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
@@ -16,31 +19,32 @@ const PORT = 3000;
 // Middlewares
 app.use(cors()); 
 app.use(express.json());
-app.use('/data', express.static(path.join(__dirname, '/data')));
+app.use('/data', express.static(path.join(__dirname, 'data'))); // Corrigido: sem '/data' duplicado
 
 // --- ROTAS DA API ---
-// O backend agora tem duas rotas de API
 app.use('/api', authRoutes);
 app.use('/api', locationRoutes);
 
+// ROTA PARA UM LOCAL POR ID (agora funciona!)
+app.get('/api/locations/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const location = LOCATIONS_DB.find(loc => loc.id === id);
+  if (!location) return res.status(404).json({ error: 'Local não encontrado' });
+  res.json(location);
+});
+
 // --- SERVIR O FRONTEND ---
-// Define a pasta 'public' como a raiz dos arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rotas para servir as páginas HTML
-// __dirname é o diretório atual do server.js
-
-// A página de Login é aberta
+// Rotas HTML
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-// A página de Localização (mapa)
 app.get('/localizacao', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'localizacao.html'));
 });
 
-// A Página Inicial (Feed) é a rota principal
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

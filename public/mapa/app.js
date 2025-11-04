@@ -7,3 +7,4 @@ import { LocationController } from './location.controller.js';
 document.addEventListener('DOMContentLoaded', () => {
   LocationController.init();
 });
+
