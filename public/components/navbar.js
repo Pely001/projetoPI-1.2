@@ -14,7 +14,7 @@ class MainNavbar extends HTMLElement {
             <span class="nav-icon">🏠</span>
             <span class="nav-text">Página Inicial</span>
           </a>
-          <a href="#" class="nav-item">
+          <a href="/pesquisa" class="nav-item ${this.isActive('/pesquisa')}">
             <span class="nav-icon">🔍</span>
             <span class="nav-text">Pesquisar</span>
           </a>

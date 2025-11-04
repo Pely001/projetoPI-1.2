@@ -74,3 +74,11 @@ function showError(msg) {
 }
 
 document.addEventListener('DOMContentLoaded', loadLocation);
+
+// Adicione no loadSelectedPlace
+const hours = selected.hours || { weekday_text: [], open_now: false };
+const status = hours.open_now ? 'Aberto agora' : 'Fechado';
+const todayHours = hours.weekday_text ? hours.weekday_text[new Date().getDay()] : 'Horário não disponível';
+
+// Adicione no HTML (opcional): <p id="loc-hours" class="status">${status} • ${todayHours}</p>
+document.getElementById('loc-hours').innerHTML = `${status} • ${todayHours}`;

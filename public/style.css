@@ -552,3 +552,168 @@ body {
     height: 50vh;
   }
 }
+
+.search-layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 0;
+  height: calc(100vh - 160px);
+  background: #161625;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.results-panel {
+  background: #1e1e30;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #2a2a40;
+}
+
+.result-item {
+  background: #252540;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid transparent;
+}
+
+.result-item:hover {
+  background: #2a2a50;
+  border-color: #7b5cf0;
+}
+
+.result-item h4 {
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.rating {
+  color: #ffd700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.rating .count {
+  color: #aaa;
+  font-weight: normal;
+}
+
+.address {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 4px 0;
+}
+
+.status {
+  font-size: 0.85rem;
+  margin: 6px 0;
+}
+
+.status.open { color: #4ade80; }
+.status.closed { color: #f87171; }
+
+.btn-view-details {
+  background: #7b5cf0;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.text-muted { color: #888; text-align: center; margin: 40px 0; }
+.error { color: #f87171; text-align: center; }
+
+.map-panel, #map { height: 100%; width: 100%; }
+
+.type {
+  background: #7b5cf0;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.result-item:hover {
+  transform: translateX(4px);
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  background: #2a2a40;
+  color: #ccc;
+  border: 1px solid #3a3a50;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.2s;
+}
+
+.filter-btn.active {
+  background: #7b5cf0;
+  color: #fff;
+  border-color: #7b5cf0;
+}
+
+.status.open { color: #4ade80; }
+.status.closed { color: #f87171; }
+
+.type {
+  background: #7b5cf0;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.distance {
+  color: #aaa;
+  font-size: 0.85rem;
+  margin: 4px 0;
+}
+
+.result-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.btn-directions {
+  background: #2a2a40;
+  color: #ccc;
+  border: 1px solid #3a3a50;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  flex: 1;
+  text-align: center;
+}
+
+.btn-directions:hover {
+  background: #3a3a60;
+  color: #fff;
+}
