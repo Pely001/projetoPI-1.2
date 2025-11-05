@@ -337,7 +337,7 @@ document.querySelectorAll('.btn-view-details').forEach(btn => {
       address: formatCleanAddress(result.display_name),
       phone: '(11) 99999-1234', // fallback
       lat: parseFloat(result.lat),
-      lng: parseFloat(result.lon),
+      lon: parseFloat(result.lon),
       menu_url: getMenuUrl(result),
       tags: { vibe: [getVibe(result)] }
     };
