@@ -1,84 +1,91 @@
 // /public/js/localizacao-detail.js
 
-let map, marker;
+let map;
 
-async function loadLocation() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get('id');
-  if (!id) return showError("ID não encontrado");
+function loadPlace() {
+  // Lê os dados salvos na pesquisa
+  const place = JSON.parse(localStorage.getItem('selectedPlace'));
 
-  try {
-    const res = await fetch(`http://localhost:3000/api/locations/${id}`);
-    if (!res.ok) throw new Error("Local não encontrado");
-    const loc = await res.json();
-
-    // Preenche informações
-    document.getElementById('loc-name').textContent = loc.name;
-    document.getElementById('loc-address').textContent = loc.address;
-    document.getElementById('loc-phone').textContent = loc.phone || "Não informado";
-    document.getElementById('loc-menu').href = loc.menu_url || '#';
-
-    // Vibe
-    const vibe = loc.tags.vibe?.[0]?.replace('_', ' ') || "Geral";
-    document.getElementById('loc-vibe').textContent = vibe;
-
-    // Google Maps
-    const gmaps = `https://www.google.com/maps/search/?api=1&query=${loc.lat},${loc.lng}`;
-    document.getElementById('loc-gmaps').href = gmaps;
-
-    // Mapa OpenStreetMap
-    initMap(loc.lat, loc.lng, loc.name);
-
-  } catch (err) {
-    showError(err.message);
+  // Se não houver dados, volta ou mostra erro
+  if (!place) {
+    alert('Nenhum local selecionado.');
+    history.back();
+    return;
   }
+
+  // === PREENCHE INFORMAÇÕES ===
+  document.getElementById('loc-name').textContent = place.name || 'Local sem nome';
+
+  document.getElementById('loc-address').textContent = place.address || 'Endereço não disponível';
+
+  document.getElementById('loc-phone').textContent = place.phone || 'Não informado';
+
+  // Botão Ver Cardápio
+  const menuBtn = document.getElementById('loc-menu');
+  menuBtn.href = place.menu_url || '#';
+  menuBtn.textContent = place.menu_url && place.menu_url !== '#' ? 'Ver Cardápio' : 'Cardápio não disponível';
+
+  // === VIBE (TAG) ===
+  const vibe = place.tags?.vibe?.[0] || 'Geral';
+  const vibeEl = document.getElementById('loc-vibe');
+  vibeEl.textContent = vibe;
+  vibeEl.className = `tag vibe-${vibe.toLowerCase().replace(' ', '-')}`;
+
+  // === STATUS: ABERTO / FECHADO + HORÁRIO ===
+  const statusEl = document.getElementById('loc-status');
+  if (statusEl) {
+    const openNow = place.hours?.open_now ?? false;
+    const todayIndex = new Date().getDay(); // 0=Dom, 1=Seg...
+    const todayHours = place.hours?.weekday_text?.[todayIndex] || 'Horário não disponível';
+    const statusText = openNow ? 'Aberto agora' : 'Fechado';
+
+    statusEl.innerHTML = `<strong>${statusText}</strong> • ${todayHours}`;
+    statusEl.className = `status ${openNow ? 'open' : 'closed'}`;
+  }
+
+  // === GOOGLE MAPS ===
+  const gmapsLink = `https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lng}`;
+  document.getElementById('loc-gmaps').href = gmapsLink;
+
+  // === INICIA O MAPA ===
+  initMap(place.lat, place.lng, place.name);
+
+  // Limpa o localStorage (opcional, evita dados velhos)
+  // localStorage.removeItem('selectedPlace');
 }
 
 function initMap(lat, lng, name) {
+  // Remove mapa antigo se existir
   if (map) map.remove();
 
+  // Cria novo mapa
   map = L.map('map').setView([lat, lng], 17);
 
+  // Tiles do OpenStreetMap
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  // Pin personalizado
-  const icon = L.divIcon({
+  // Pin personalizado (roxo com bolinha branca)
+  const customIcon = L.divIcon({
     className: 'custom-pin',
     html: `
-      <svg width="36" height="46" viewBox="0 0 36 46">
-        <path d="M18 0C8.058 0 0 8.058 0 18C0 31.392 18 46 18 46C18 46 36 31.392 36 18C36 8.058 27.942 0 18 0Z" fill="#7b5cf0"/>
-        <circle cx="18" cy="18" r="10" fill="#fff"/>
-        <circle cx="18" cy="18" r="6" fill="#7b5cf0"/>
+      <svg width="40" height="50" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 0C7.163 0 0 7.163 0 16C0 27.625 16 42 16 42C16 42 32 27.625 32 16C32 7.163 24.837 0 16 0Z" fill="#7b5cf0"/>
+        <circle cx="16" cy="16" r="8" fill="#fff"/>
       </svg>
     `,
-    iconSize: [36, 46],
-    iconAnchor: [18, 46],
-    popupAnchor: [0, -46]
+    iconSize: [40, 50],
+    iconAnchor: [20, 50],
+    popupAnchor: [0, -50]
   });
 
-  L.marker([lat, lng], { icon }).addTo(map)
+  // Adiciona o marcador com popup
+  L.marker([lat, lng], { icon: customIcon })
+    .addTo(map)
     .bindPopup(`<b>${name}</b>`)
     .openPopup();
 }
 
-function showError(msg) {
-  document.querySelector('.detail-layout').innerHTML = `
-    <div style="grid-column: 1 / -1; padding:40px; text-align:center; color:#aaa;">
-      <h3>Erro</h3>
-      <p>${msg}</p>
-      <button onclick="history.back()" class="btn-back">Voltar</button>
-    </div>
-  `;
-}
-
-document.addEventListener('DOMContentLoaded', loadLocation);
-
-// Adicione no loadSelectedPlace
-const hours = selected.hours || { weekday_text: [], open_now: false };
-const status = hours.open_now ? 'Aberto agora' : 'Fechado';
-const todayHours = hours.weekday_text ? hours.weekday_text[new Date().getDay()] : 'Horário não disponível';
-
-// Adicione no HTML (opcional): <p id="loc-hours" class="status">${status} • ${todayHours}</p>
-document.getElementById('loc-hours').innerHTML = `${status} • ${todayHours}`;
+// Carrega ao abrir a página
+document.addEventListener('DOMContentLoaded', loadPlace);

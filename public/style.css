@@ -717,3 +717,42 @@ body {
   background: #3a3a60;
   color: #fff;
 }
+
+.vibe-agitado { background: #e91e63; color: #fff; }
+.vibe-prático { background: #4caf50; color: #fff; }
+.vibe-aconchegante { background: #ff9800; color: #fff; }
+.vibe-geral { background: #9c27b0; color: #fff; }
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 8px 0;
+}
+/* Tags de vibe */
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 8px 0 12px;
+}
+
+.vibe-agitado { background: #e91e63; }
+.vibe-prático { background: #4caf50; }
+.vibe-aconchegante { background: #ff9800; }
+.vibe-geral { background: #9c27b0; }
+
+/* Status aberto/fechado */
+.status {
+  font-size: 0.95rem;
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+.status.open { color: #4ade80; }
+.status.closed { color: #f87171; }
