@@ -45,10 +45,10 @@ export const AuthAPIController = {
       console.error(error);
       res.status(500).json({ message: "Erro no servidor." });
     }
-  }
+  },
 
   // (Aqui você criaria a função 'register')
-  /*register: async (req, res) => {
+  register: async (req, res) => {
     const { username, password } = req.body;
 
     if (!username || !password) {
@@ -80,5 +80,5 @@ export const AuthAPIController = {
     }
   }
 
-*/
+
 };
