@@ -22,10 +22,6 @@ class MainNavbar extends HTMLElement {
             <span class="nav-icon">ℹ️</span>
             <span class="nav-text">Informações</span>
           </a>
-          <a href="/localizacao" class="nav-item ${this.isActive('/localizacao')}">
-            <span class="nav-icon">📍</span>
-            <span class="nav-text">Localização</span>
-          </a>
         </nav>
         <div class="nav-profile">
             <a href="/login" id="login-link">Login</a>

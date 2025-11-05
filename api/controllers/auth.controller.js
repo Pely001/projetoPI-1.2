@@ -46,6 +46,39 @@ export const AuthAPIController = {
       res.status(500).json({ message: "Erro no servidor." });
     }
   }
-  
+
   // (Aqui você criaria a função 'register')
+  register: async (req, res) => {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+      return res.status(400).json({ message: "Usuário e senha são obrigatórios." });
+    }
+
+    try {
+      // Verifica se o usuário já existe
+      const existingUser = await UserAPIModel.findByUsername(username);
+      if (existingUser) {
+        return res.status(409).json({ message: "Usuário já existe." });
+      }
+
+      // Hash da senha
+      const salt = await bcrypt.genSalt(10);
+      const password_hash = await bcrypt.hash(password, salt);
+
+      // Cria o novo usuário
+      const newUser = await UserAPIModel.createUser({ username, password_hash });
+      
+      res.status(201).json({
+        message: "Usuário registrado com sucesso!",
+        user: { id: newUser.id, username: newUser.username }
+      });
+
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Erro no servidor." });
+    }
+  }
+
+
 };
