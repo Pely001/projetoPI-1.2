@@ -48,7 +48,7 @@ export const AuthAPIController = {
   }
 
   // (Aqui você criaria a função 'register')
-  register: async (req, res) => {
+  /*register: async (req, res) => {
     const { username, password } = req.body;
 
     if (!username || !password) {
@@ -80,5 +80,5 @@ export const AuthAPIController = {
     }
   }
 
-
+*/
 };
