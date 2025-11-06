@@ -1,37 +1,18 @@
 # 🌍 Projeto PI 1.2
 
-Uma aplicação web desenvolvida para **visualização, registro e consulta de pontos no mapa**, incluindo páginas de **login**, **cadastro**, **feed**, **pesquisa** e **detalhes de localização**.
+Aplicação web desenvolvida como parte da disciplina **Projeto Integrador**, utilizando **Node.js** como servidor para gerenciamento das páginas e recursos.
 
-> Projeto realizado como parte da disciplina **Projeto Integrador**.
-
----
-
-## ✨ Visão Geral
-
-O sistema oferece:
-- Mapa interativo para visualização de locais.
-- Cadastro e login de usuários.
-- Página de pesquisa e listagem organizada.
-- Detalhamento individual de pontos do mapa.
-- Estrutura seguindo o padrão **MVC** na camada de mapa.
+O sistema permite **visualizar, pesquisar e consultar pontos no mapa**, além de contar com páginas de **login**, **cadastro**, **feed** e **pesquisa**.
 
 ---
 
+## ✨ Funcionalidades
 
-
-## 📁 Estrutura do Projeto
-
-```
-projetoPI-1.2/
-│
-├── css/                   # Estilos da interface
-├── js/                    # Scripts gerais da aplicação
-├── mapa/                  # Módulo de mapa (MVC)
-├── components/            # Componentes reutilizáveis
-│
-├── *.html                 # Páginas principais
-└── README.md
-```
+- Página de **Login** e **Cadastro** de usuários  
+- **Feed** com informações e atualizações
+- **Pesquisa** de locais registrados
+- **Mapa Interativo** usando arquitetura **MVC** (`mapa/`)
+- Exibição detalhada de pontos localizados
 
 ---
 
@@ -39,39 +20,71 @@ projetoPI-1.2/
 
 | Tecnologia | Função |
 |-----------|--------|
+| **Node.js + Express** | Servidor e roteamento |
 | **HTML5** | Estrutura das páginas |
-| **CSS3** | Estilização e responsividade |
-| **JavaScript (ES6)** | Lógica da aplicação |
-| **Padrão MVC** | Organização do módulo do mapa |
+| **CSS3** | Estilização e layout |
+| **JavaScript (ES6)** | Lógica de interface e funcionalidades |
+| **MVC (Model-View-Controller)** | Organização do módulo de mapa |
 
 ---
 
-## ▶️ Como Executar
+## 📁 Estrutura do Projeto
 
-1. Baixe ou clone o repositório:
+```
+projetoPI-1.2/
+│
+├── server.js              # Ponto de entrada do servidor Node
+├── package.json           # Scripts e dependências
+│
+├── css/                   # Estilos
+├── js/                    # Scripts gerais
+├── components/            # Componentes reutilizáveis
+│
+└── mapa/                  # Módulo do mapa em MVC
+    ├── app.js
+    ├── location.model.js
+    ├── location.view.js
+    └── location.controller.js
+```
+
+---
+
+## ▶️ Como Executar o Projeto
+
+Certifique-se de ter o **Node.js** instalado.
+
+1. Instale as dependências:
    ```bash
-   git clone https://github.com/Pely001/projetoPI-1.2.git
+   npm install
    ```
-2. Abra o arquivo:
+
+2. Inicie o servidor:
+   ```bash
+   npm start
    ```
-   index.html
+
+3. Acesse no navegador:
    ```
-3. Execute no navegador.
+   http://localhost:3000
+   ```
+
+> Caso o projeto esteja configurado para outra porta, verifique dentro do arquivo `server.js`.
 
 ---
 
 ## 🚀 Melhorias Futuras
 
-- Implementar backend com banco de dados.
-- Autenticação real de usuários.
-- API para consulta e registro de localizações.
-- Modo dark + interface mais moderna.
+- Banco de dados para autenticação real
+- Painel administrativo
+- API para armazenamento e consulta externa
+- Tema escuro / UI moderna
 
 ---
 
 ## 👨‍💻 Autores
+
 Projeto desenvolvido por estudantes da disciplina **Projeto Integrador**.
 
 ---
 
-### ⭐ Se este projeto te ajudou, deixe uma estrela no repositório!
+### ⭐ Se este projeto for útil, não esqueça de deixar uma estrela!
