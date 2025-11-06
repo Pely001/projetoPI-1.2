@@ -17,18 +17,7 @@ O sistema oferece:
 
 ---
 
-## 🖼 Prévia do Projeto
 
-> Adicione suas prints aqui posteriormente — deixei espaços organizados para inserção.
-
-| Página | Imagem |
-|------|--------|
-| Tela Inicial | _adicione uma imagem aqui_ |
-| Mapa | _adicione uma imagem aqui_ |
-| Pesquisa | _adicione uma imagem aqui_ |
-| Detalhes | _adicione uma imagem aqui_ |
-
----
 
 ## 📁 Estrutura do Projeto
 
