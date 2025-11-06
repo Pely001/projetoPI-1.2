@@ -1,66 +1,88 @@
-# projetoPI-1.2
+# 🌍 Projeto PI 1.2
 
-Repositório do projeto PI-1.2, desenvolvido por [Pely001](https://github.com/Pely001).
+Uma aplicação web desenvolvida para **visualização, registro e consulta de pontos no mapa**, incluindo páginas de **login**, **cadastro**, **feed**, **pesquisa** e **detalhes de localização**.
 
-## 📝 Sobre o Projeto
+> Projeto realizado como parte da disciplina **Projeto Integrador**.
 
-*(Adicione aqui uma descrição clara do que o projeto faz, qual problema ele resolve e seus principais objetivos.)*
+---
 
-Este projeto parece ser uma aplicação web full-stack, com uma API de backend (`server.js`, pasta `api`) e uma interface de frontend (pasta `public`).
+## ✨ Visão Geral
 
-## 💻 Tecnologias Utilizadas
+O sistema oferece:
+- Mapa interativo para visualização de locais.
+- Cadastro e login de usuários.
+- Página de pesquisa e listagem organizada.
+- Detalhamento individual de pontos do mapa.
+- Estrutura seguindo o padrão **MVC** na camada de mapa.
 
-Com base na análise do repositório, estas são as principais tecnologias:
+---
 
-* **JavaScript (65.9%)**
-* **CSS (23.0%)**
-* **HTML (11.1%)**
-* **Node.js** (inferido pela presença de `server.js` e `package.json`)
+## 🖼 Prévia do Projeto
 
-## 📂 Estrutura do Projeto
+> Adicione suas prints aqui posteriormente — deixei espaços organizados para inserção.
 
-A estrutura de pastas principal inclui:
+| Página | Imagem |
+|------|--------|
+| Tela Inicial | _adicione uma imagem aqui_ |
+| Mapa | _adicione uma imagem aqui_ |
+| Pesquisa | _adicione uma imagem aqui_ |
+| Detalhes | _adicione uma imagem aqui_ |
 
-* `/api`: Provavelmente contém a lógica da API e os *endpoints*.
-* `/data`: Pode conter arquivos de dados estáticos ou *mocks*.
-* `/db`: Sugere a configuração ou arquivos de um banco de dados.
-* `/public`: Contém os arquivos estáticos do frontend (HTML, CSS, JS do lado do cliente).
-* `server.js`: O arquivo principal que inicia o servidor backend.
-* `package.json`: Define as dependências e scripts do projeto.
+---
 
-## 🚀 Como Executar o Projeto
+## 📁 Estrutura do Projeto
 
-Embora os scripts exatos não estejam definidos, um projeto Node.js típico segue estes passos:
+```
+projetoPI-1.2/
+│
+├── css/                   # Estilos da interface
+├── js/                    # Scripts gerais da aplicação
+├── mapa/                  # Módulo de mapa (MVC)
+├── components/            # Componentes reutilizáveis
+│
+├── *.html                 # Páginas principais
+└── README.md
+```
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://github.com/Pely001/projetoPI-1.2.git](https://github.com/Pely001/projetoPI-1.2.git)
-    cd projetoPI-1.2
-    ```
+---
 
-2.  **Instale as dependências:**
-    (Requer [Node.js](https://nodejs.org/) e npm instalados)
-    ```bash
-    npm install
-    ```
+## 🛠 Tecnologias Utilizadas
 
-3.  **Inicie o servidor:**
-    (O script de inicialização pode variar; `start` ou `dev` são comuns)
-    ```bash
-    npm start
-    ```
-    *ou*
-    ```bash
-    node server.js
-    ```
+| Tecnologia | Função |
+|-----------|--------|
+| **HTML5** | Estrutura das páginas |
+| **CSS3** | Estilização e responsividade |
+| **JavaScript (ES6)** | Lógica da aplicação |
+| **Padrão MVC** | Organização do módulo do mapa |
 
-4.  Acesse a aplicação em `http://localhost:PORTA` (a porta específica deve estar definida em `server.js`).
+---
 
-## 👥 Contribuidores
+## ▶️ Como Executar
 
-* [Pely001](https://github.com/Pely001)
-* (O repositório indica 2 contribuidores, liste o segundo aqui se desejar)
+1. Baixe ou clone o repositório:
+   ```bash
+   git clone https://github.com/Pely001/projetoPI-1.2.git
+   ```
+2. Abra o arquivo:
+   ```
+   index.html
+   ```
+3. Execute no navegador.
 
-## 📄 Licença
+---
 
-Este projeto não possui uma licença definida.
+## 🚀 Melhorias Futuras
+
+- Implementar backend com banco de dados.
+- Autenticação real de usuários.
+- API para consulta e registro de localizações.
+- Modo dark + interface mais moderna.
+
+---
+
+## 👨‍💻 Autores
+Projeto desenvolvido por estudantes da disciplina **Projeto Integrador**.
+
+---
+
+### ⭐ Se este projeto te ajudou, deixe uma estrela no repositório!
