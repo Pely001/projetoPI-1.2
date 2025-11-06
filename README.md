@@ -84,6 +84,10 @@ Certifique-se de ter o **Node.js** instalado.
 ## 👨‍💻 Autores
 
 Projeto desenvolvido por estudantes da disciplina **Projeto Integrador**.
+Pedro Matias,
+Michael Jordan,
+Lindomar,
+Samuel Paulo.
 
 ---
 
