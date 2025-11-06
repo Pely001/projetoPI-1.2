@@ -1,0 +1,103 @@
+/*Página registro (Lindomar)*/
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #0d0d2b;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.container {
+  background-color: #16163a;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  text-align: center;
+  color: #a27bff;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #b8b8d1;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  background-color: #1e1e40;
+  border: 1px solid #2d2d5a;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.95em;
+}
+
+input::placeholder {
+  color: #8f8fb1;
+}
+
+input:focus {
+  outline: none;
+  border-color: #a27bff;
+  box-shadow: 0 0 6px #a27bff60;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(90deg, #7b61ff, #9d7dff);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(162, 123, 255, 0.4);
+}
+
+/* Novo estilo para o link de recuperação */
+.recuperar-senha {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.recuperar-senha a {
+  color: #9d7dff;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.recuperar-senha a:hover {
+  color: #c5a9ff;
+}
+
+.mensagem {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
