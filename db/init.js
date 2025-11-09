@@ -23,8 +23,12 @@ async function initializeDatabase() {
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       username TEXT NOT NULL UNIQUE,
-      email TEXT NOT NULL UNIQUE,
-      password_hash TEXT NOT NULL
+      email TEXT,
+      password_hash TEXT NOT NULL,
+      tipo TEXT DEFAULT 'usuario',
+      cnpj TEXT,
+      telefone TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
   `);
   console.log("Tabela 'users' verificada/criada.");

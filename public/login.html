@@ -4,27 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - PI</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style-auth.css">
 </head>
-<body class="login-page">
-    <div class="login-container">
-        <form id="login-form">
-            <h2>Login</h2>
-            <p id="error-message" class="error"></p>
-            <div class="input-group">
-                <label for="username">Usuário</label>
-                <input type="text" id="username" name="username" required>
+<body>
+    <div class="auth-container">
+        <!-- Painel de Overlay (animado) -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>Olá, Bem-vindo!</h1>
+                    <p>Ainda não possui conta?</p>
+                    <button class="ghost-btn" id="signUp">Registrar</button>
+                </div>
             </div>
-            <div class="input-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn-primary">Entrar</button>
-            <div class="login-links">
-                <a href="#">Recuperar senha?</a>
-                <a href="./registro.html">Registrar</a>
-            </div>
-        </form>
+        </div>
+
+        <!-- Formulário de Login -->
+        <div class="form-container sign-in-container">
+            <form id="login-form">
+                <h2>Login</h2>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span class="separator">ou use sua conta</span>
+                <p id="error-message" class="error-msg"></p>
+                <div class="input-wrapper">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" name="username" placeholder="Usuário" required>
+                </div>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Senha" required>
+                </div>
+                <a href="esqueceu-senha.html" class="forgot-password">Esqueceu sua senha?</a>
+                <button type="submit" class="auth-btn">Entrar</button>
+            </form>
+        </div>
     </div>
     <script src="auth.js"></script>
 </body>
