@@ -3,7 +3,8 @@
 // 1. Pega os dados da API (chama o backend)
 async function fetchLocations() {
     try {
-        const response = await fetch('http://localhost:3000/api/locations');
+        const API_BASE = window.location.origin;
+        const response = await fetch(`${API_BASE}/api/locations`);
         if (!response.ok) {
             throw new Error('Falha ao buscar locais');
         }

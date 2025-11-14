@@ -5,8 +5,17 @@ export const UserAPIModel = {
   
   findByUsername: async (username) => {
     const db = await openDb();
-    return db.get('SELECT * FROM users WHERE username = ?', username);
+    return db.get('SELECT * FROM users WHERE username = ?', [username]);
+  },
+
+  createUser: async ({ username, password_hash }) => {
+    const db = await openDb();
+    const result = await db.run(
+      'INSERT INTO users (username, password) VALUES (?, ?)',
+      [username, password_hash]
+    );
+    return { id: result.lastID, username };
   }
-  
-  // (Aqui você adicionaria 'create', 'findById', etc.)
+
+  // adicione outras funções se precisar (findById, findByEmail, etc.)
 };

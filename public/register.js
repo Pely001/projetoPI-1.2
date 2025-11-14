@@ -35,3 +35,13 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     }
 
 });
+
+async function registerUser(payload) {
+    const API_BASE = window.location.origin;
+    const res = await fetch(`${API_BASE}/api/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
+    return res.json();
+}

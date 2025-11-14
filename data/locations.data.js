@@ -91,6 +91,6 @@ export const LOCATIONS_DB = [
       image_path: "/data/img/5.png"
     }
   }
-// ... (feche o array com ])
+
   
 ];

@@ -1,0 +1,21 @@
+# 1x — instalar dependências
+npm install
+
+# 1x — inicializar o banco (cria tabelas). Só precisa rodar de novo se mudar o schema.
+npm run db:init
+
+# iniciar o servidor
+npm start
+
+# só para a sessão atual (ex.: trocar secret ou porta)
+export JWT_SECRET="minha_chave_dev"
+export PORT=3000
+npm start
+
+# instala nodemon como dependência de desenvolvimento
+npm install --save-dev nodemon
+
+# então adicione no package.json (scripts) algo como:
+# "dev": "nodemon server.js"
+# e rode:
+npm run dev
