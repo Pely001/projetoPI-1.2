@@ -19,3 +19,22 @@ npm install --save-dev nodemon
 # "dev": "nodemon server.js"
 # e rode:
 npm run dev
+
+# listar processos
+pm2 list
+
+# parar um processo por nome ou id
+pm2 stop projeto-pi-social
+# ou
+pm2 stop 0
+
+# parar todos os processos
+pm2 stop all
+
+# remover (deleta da lista do PM2)
+pm2 delete projeto-pi-social
+# ou
+pm2 delete all
+
+# encerrar completamente o daemon do PM2
+pm2 kill

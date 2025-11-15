@@ -2,7 +2,6 @@
 import { openDb } from '../../db/database.js';
 
 export const UserAPIModel = {
-  
   findByUsername: async (username) => {
     const db = await openDb();
     return db.get('SELECT * FROM users WHERE username = ?', [username]);

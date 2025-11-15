@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/Pely001/projetoPI-1.2/issues"
   },
-  "homepage": "https://github.com/Pely001/projetoPI-1.2#readme"
+  "homepage": "https://github.com/Pely001/projetoPI-1.2#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
 }
