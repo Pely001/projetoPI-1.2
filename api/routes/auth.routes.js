@@ -7,6 +7,7 @@ const router = express.Router();
 // Define a rota de login
 router.post('/auth/login', AuthAPIController.login);
 
+// Rota de registro de usuários
 router.post('/auth/register', AuthAPIController.register);
 
 export default router;
