@@ -45,38 +45,27 @@ export const AuthAPIController = {
   },
 
   register: async (req, res) => {
-    const { username, password, name, email } = req.body;
+    const { username, password } = req.body;
 
-    if (!username || !password) {
-      return res.status(400).json({ message: "Usuário e senha são obrigatórios." });
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "Nome, e-mail e senha são obrigatórios." });
     }
 
     try {
-      const existingUser = await UserAPIModel.findByUsername(username);
+      const existingUser = await UserAPIModel.findByEmail(email);
       if (existingUser) {
-        return res.status(409).json({ message: "Usuário já existe." });
+        return res.status(409).json({ message: "E-mail já cadastrado." });
       }
 
       const salt = await bcrypt.genSalt(10);
       const password_hash = await bcrypt.hash(password, salt);
 
       // cria usuário; o modelo deve gravar o hash na coluna 'password'
-      const safeName = name || username;
-      const safeEmail = email || `${username}@app.local`;
-      const newUser = await UserAPIModel.createUser({
-        username,
-        password_hash,
-        name: safeName,
-        email: safeEmail
-      });
+      const newUser = await UserAPIModel.createUser({ username, password_hash });
 
       res.status(201).json({
         message: "Usuário registrado com sucesso!",
-        user: {
-          id: newUser.id,
-          username: newUser.username,
-          name: newUser.name
-        }
+        user: { id: newUser.id, username: newUser.username }
       });
     } catch (error) {
       console.error(error);

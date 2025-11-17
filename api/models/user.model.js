@@ -7,15 +7,15 @@ export const UserAPIModel = {
     return db.get('SELECT * FROM users WHERE username = ?', [username]);
   },
 
-  createUser: async ({ username, email, password_hash, name }) => {
+  createUser: async ({ username, password_hash }) => {
     const db = await openDb();
     const safeName = name ?? username;
     const safeEmail = email ?? '';
     const result = await db.run(
-      'INSERT INTO users (username, email, password_hash, name) VALUES (?, ?, ?, ?)',
-      [username, safeEmail, password_hash, safeName]
+      'INSERT INTO users (username, password) VALUES (?, ?)',
+      [username, password_hash]
     );
-    return { id: result.lastID, username, name: safeName };
+    return { id: result.lastID, username };
   }
 
   // adicione outras funções se precisar (findById, findByEmail, etc.)
