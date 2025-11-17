@@ -8,9 +8,11 @@ async function loadLocation() {
   if (!id) return showError("ID não encontrado");
 
   try {
-    const res = await fetch(`http://localhost:3000/api/locations/${id}`);
+    const res = await fetch(`/api/locations/${id}`);
+    const json = await res.json();
+
     if (!res.ok) throw new Error("Local não encontrado");
-    const loc = await res.json();
+    const loc = json;
 
     // === PREENCHE INFORMAÇÕES ===
     document.getElementById('loc-name').textContent = loc.name;

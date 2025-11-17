@@ -11,16 +11,16 @@ async function initMapWithLocation() {
     if (locationId) {
         try {
             // Busca dados do local específico
-            const response = await fetch(`http://localhost:3000/api/locations/${locationId}`);
-            const location = await response.json();
+            const response = await fetch(`/api/locations/${locationId}`);
+            const data = await response.json();
             
             // Centraliza o mapa nas coordenadas do local
-            map.setView([location.coordinates.lat, location.coordinates.lng], 16);
+            map.setView([data.coordinates.lat, data.coordinates.lng], 16);
             
             // Adiciona um marcador
-            L.marker([location.coordinates.lat, location.coordinates.lng])
+            L.marker([data.coordinates.lat, data.coordinates.lng])
                 .addTo(map)
-                .bindPopup(location.name)
+                .bindPopup(data.name)
                 .openPopup();
         } catch (error) {
             console.error('Erro ao carregar localização:', error);

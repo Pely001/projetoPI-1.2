@@ -7,15 +7,12 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     const errorMessage = document.getElementById('error-message');
     
     try {
-        const API_BASE = window.location.origin;
-        const response = await fetch(`${API_BASE}/api/auth/login`, {
+        // usar caminho relativo
+        const response = await fetch('/api/auth/login', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
         });
-        
         const data = await response.json();
         
         if (!response.ok) {

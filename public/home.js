@@ -3,8 +3,8 @@
 // 1. Pega os dados da API (chama o backend)
 async function fetchLocations() {
     try {
-        const API_BASE = window.location.origin;
-        const response = await fetch(`${API_BASE}/api/locations`);
+        // usar caminho relativo garante que o browser chame o mesmo host/origem da página
+        const response = await fetch('/api/locations');
         if (!response.ok) {
             throw new Error('Falha ao buscar locais');
         }

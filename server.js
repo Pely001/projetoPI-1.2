@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import os from 'os';
 
 // Importa as rotas de API
 import locationRoutes from './api/routes/location.routes.js';
@@ -14,7 +15,7 @@ import { LOCATIONS_DB } from './data/locations.data.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // Middlewares
@@ -55,6 +56,18 @@ app.get('/', (req, res) => {
 });
 
 // Inicia o servidor
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+const server = app.listen(PORT, () => {
+  // substitui linha que mostrava "localhost"
+  const interfaces = os.networkInterfaces();
+  let localIp = 'localhost';
+  for (const name of Object.keys(interfaces)) {
+    for (const iface of interfaces[name]) {
+      if (iface.family === 'IPv4' && !iface.internal) {
+        localIp = iface.address;
+        break;
+      }
+    }
+    if (localIp !== 'localhost') break;
+  }
+  console.log(`Servidor rodando em http://${localIp}:${PORT}  (ou http://localhost:${PORT})`);
 });
