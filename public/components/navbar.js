@@ -23,9 +23,6 @@ class MainNavbar extends HTMLElement {
             <span class="nav-text">Informações</span>
           </a>
         </nav>
-        <div class="nav-profile">
-            <a href="/login" id="login-link">Login</a>
-        </div>
       </aside>
     `;
   }
@@ -40,11 +37,12 @@ class MainNavbar extends HTMLElement {
       const user = localStorage.getItem('user');
       const loginLink = this.querySelector('#login-link');
       
-      if(user) {
+        if(user) {
           const userData = JSON.parse(user);
-          loginLink.textContent = `Olá, ${userData.username}`;
+          const displayName = userData.name || userData.username;
+          loginLink.textContent = `Olá, ${displayName}`;
           loginLink.href = '#'; // (link para perfil?)
-      }
+        }
   }
 }
 

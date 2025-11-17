@@ -118,7 +118,87 @@ body {
     border-radius: 8px;
     padding: 10px 15px;
     color: #fff;
-    width: 70%;
+    width: 50%;
+}
+
+.auth-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.auth-user {
+  position: relative;
+}
+
+.auth-greeting {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.auth-greeting:hover {
+  background: #2a2a40;
+}
+
+.auth-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #161625;
+  border: 1px solid #2a2a40;
+  border-radius: 12px;
+  padding: 10px;
+  min-width: 180px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 20;
+}
+
+.auth-dropdown.visible {
+  display: flex;
+}
+
+.auth-menu-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.auth-menu-link:hover {
+  background: #2a2a40;
+}
+
+.auth-logout {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  background: #7b5cf0;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.auth-logout:hover {
+  background: #5a3fd3;
+}
+
+.main-header {
+  overflow: visible;
 }
 
 .search-bar::placeholder {

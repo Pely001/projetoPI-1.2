@@ -24,10 +24,18 @@ async function initializeDatabase() {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       username TEXT NOT NULL UNIQUE,
       email TEXT NOT NULL UNIQUE,
-      password_hash TEXT NOT NULL
+      password_hash TEXT NOT NULL,
+      name TEXT NOT NULL
     );
   `);
   console.log("Tabela 'users' verificada/criada.");
+
+  const userColumns = await db.all("PRAGMA table_info(users)");
+  const hasNameColumn = userColumns.some(column => column.name === 'name');
+  if (!hasNameColumn) {
+    await db.exec(`ALTER TABLE users ADD COLUMN name TEXT DEFAULT ''`);
+    await db.run("UPDATE users SET name = username WHERE name IS NULL OR name = ''");
+  }
 
   // --- Popular Tabela 'locations' (Igual) ---
   const insertLocStmt = await db.prepare(
@@ -53,14 +61,15 @@ async function initializeDatabase() {
   const testUser = 'admin';
   const testEmail = 'admin@admin.com';
   const testPass = '1234';
+  const testName = 'Administrador';
   
   const userExists = await db.get('SELECT 1 FROM users WHERE username = ?', testUser);
   if (!userExists) {
     const salt = await bcrypt.genSalt(10);
     const password_hash = await bcrypt.hash(testPass, salt);
     await db.run(
-      'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)',
-      testUser, testEmail, password_hash
+      'INSERT INTO users (username, email, password_hash, name) VALUES (?, ?, ?, ?)',
+      testUser, testEmail, password_hash, testName
     );
     console.log(`Usuário de teste '${testUser}' (senha: '${testPass}') criado.`);
   }

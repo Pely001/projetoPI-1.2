@@ -32,7 +32,11 @@ export const AuthAPIController = {
       res.status(200).json({
         message: "Login bem-sucedido!",
         token,
-        user: { id: user.id, username: user.username }
+        user: {
+          id: user.id,
+          username: user.username,
+          name: user.name || user.username
+        }
       });
     } catch (error) {
       console.error(error);
@@ -41,7 +45,7 @@ export const AuthAPIController = {
   },
 
   register: async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, name, email } = req.body;
 
     if (!username || !password) {
       return res.status(400).json({ message: "Usuário e senha são obrigatórios." });
@@ -57,11 +61,22 @@ export const AuthAPIController = {
       const password_hash = await bcrypt.hash(password, salt);
 
       // cria usuário; o modelo deve gravar o hash na coluna 'password'
-      const newUser = await UserAPIModel.createUser({ username, password_hash });
+      const safeName = name || username;
+      const safeEmail = email || `${username}@app.local`;
+      const newUser = await UserAPIModel.createUser({
+        username,
+        password_hash,
+        name: safeName,
+        email: safeEmail
+      });
 
       res.status(201).json({
         message: "Usuário registrado com sucesso!",
-        user: { id: newUser.id, username: newUser.username }
+        user: {
+          id: newUser.id,
+          username: newUser.username,
+          name: newUser.name
+        }
       });
     } catch (error) {
       console.error(error);

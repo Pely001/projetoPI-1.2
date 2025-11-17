@@ -16,7 +16,18 @@
     <main class="main-content">
       <header class="main-header">
         <input type="text" class="search-bar" placeholder="Buscar locais...">
-        <button class="btn-primary">Entrar</button>
+        <div class="auth-area">
+          <div class="auth-user" id="header-auth-user">
+            <button class="auth-greeting" id="header-auth-trigger" type="button"></button>
+            <div class="auth-dropdown" id="header-auth-menu">
+              <a class="auth-menu-link" href="/perfil">Perfil</a>
+              <a class="auth-menu-link" href="/favoritos">Favoritos</a>
+              <a class="auth-menu-link" href="/configuracoes">Configurações</a>
+              <button class="auth-logout" id="header-logout-btn" type="button">Sair</button>
+            </div>
+          </div>
+          <button class="btn-primary" id="header-auth-btn">Entrar</button>
+        </div>
       </header>
 
       <div class="content-body">
@@ -71,5 +82,6 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script type="module" src="/components/navbar.js"></script>
   <script type="module" src="/js/localizacao-detail.js"></script>
+  <script type="module" src="/js/auth-header.js"></script>
 </body>
 </html>
