@@ -30,9 +30,7 @@ if (form) {
         throw new Error(data.message || 'Falha ao registrar.');
       }
 
-      localStorage.setItem('authToken', data.token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      window.location.href = '/';
+      window.location.href = '/login';
     } catch (error) {
       messageBox.textContent = error.message;
     }

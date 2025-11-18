@@ -2,102 +2,104 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  background-color: #0d0d2b;
+  background-color: #1a1a2e;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
+  color: #e0e0e0;
 }
 
 .container {
-  background-color: #16163a;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  background-color: #161625;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
+  border: 1px solid #2a2a40;
 }
 
 h1 {
   text-align: center;
-  color: #a27bff;
-  margin-bottom: 25px;
+  color: #7b5cf0;
+  margin-bottom: 28px;
   font-weight: 600;
 }
 
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
-  color: #b8b8d1;
+  margin-bottom: 6px;
+  color: #aaa;
+  font-size: 0.95rem;
 }
 
 input {
   width: 100%;
-  padding: 10px;
-  background-color: #1e1e40;
-  border: 1px solid #2d2d5a;
-  border-radius: 6px;
+  padding: 12px;
+  background-color: #1a1a2e;
+  border: 1px solid #2a2a40;
+  border-radius: 8px;
   color: #fff;
-  font-size: 0.95em;
+  font-size: 1rem;
 }
 
 input::placeholder {
-  color: #8f8fb1;
+  color: #7a7a9f;
 }
 
 input:focus {
   outline: none;
-  border-color: #a27bff;
-  box-shadow: 0 0 6px #a27bff60;
+  border-color: #7b5cf0;
+  box-shadow: 0 0 10px rgba(123, 92, 240, 0.45);
 }
 
 button {
   width: 100%;
-  padding: 10px;
-  background: linear-gradient(90deg, #7b61ff, #9d7dff);
-  color: white;
+  padding: 12px;
+  background: linear-gradient(90deg, #7b5cf0, #9d7dff);
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 1em;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin-top: 10px;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(162, 123, 255, 0.4);
+  box-shadow: 0 10px 25px rgba(123, 92, 240, 0.3);
 }
 
-/* Novo estilo para o link de recuperação */
 .recuperar-senha {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 18px;
 }
 
 .recuperar-senha a {
-  color: #9d7dff;
+  color: #c5a9ff;
   text-decoration: none;
   font-size: 0.9em;
   transition: color 0.3s ease;
 }
 
 .recuperar-senha a:hover {
-  color: #c5a9ff;
+  color: #fff;
 }
 
 .mensagem {
   text-align: center;
-  margin-top: 15px;
-  font-weight: bold;
+  margin-top: 16px;
+  font-weight: 600;
 }
